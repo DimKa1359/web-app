@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Управление самолетами</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container">
+            <a class="navbar-brand" href="#">Авиадиспетчер</a>
+            <div class="navbar-nav">
+                <a class="nav-link" href="index.html">Главная</a>
+                <a class="nav-link active" href="planes.html">Самолеты</a>
+                <a class="nav-link" href="flights.html">Рейсы</a>
+                <a class="nav-link" href="passengers.html">Пассажиры</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-4">
+        <h1>Управление самолетами</h1>
+        
+        <div class="card mb-4">
+            <div class="card-header">
+                <h5>Добавить/изменить самолет</h5>
+            </div>
+            <div class="card-body">
+                <form id="planeForm">
+                    <input type="hidden" id="planeId">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="mb-3">
+                                <label for="planeNumber" class="form-label">Бортовой номер</label>
+                                <input type="text" class="form-control" id="planeNumber" required>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="mb-3">
+                                <label for="planeModel" class="form-label">Модель</label>
+                                <input type="text" class="form-control" id="planeModel" required>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="mb-3">
+                                <label for="planeCapacity" class="form-label">Вместимость</label>
+                                <input type="number" class="form-control" id="planeCapacity" required min="1">
+                            </div>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary me-2">Сохранить</button>
+                    <button type="button" class="btn btn-secondary" onclick="document.getElementById('planeForm').reset(); document.getElementById('planeId').value = '';">Отмена</button>
+                </form>
+            </div>
+        </div>
+
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Бортовой номер</th>
+                    <th>Модель</th>
+                    <th>Вместимость</th>
+                    <th>Действия</th>
+                </tr>
+            </thead>
+            <tbody id="planesTable">
+                <!-- Данные будут загружены через JavaScript -->
+            </tbody>
+        </table>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

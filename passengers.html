@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Управление пассажирами</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container">
+            <a class="navbar-brand" href="#">Авиадиспетчер</a>
+            <div class="navbar-nav">
+                <a class="nav-link" href="index.html">Главная</a>
+                <a class="nav-link" href="planes.html">Самолеты</a>
+                <a class="nav-link" href="flights.html">Рейсы</a>
+                <a class="nav-link active" href="passengers.html">Пассажиры</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-4">
+        <h1>Управление пассажирами</h1>
+        
+        <div class="card mb-4">
+            <div class="card-header">
+                <h5>Поиск пассажиров</h5>
+            </div>
+            <div class="card-body">
+                <input type="text" id="passengerSearch" class="form-control" placeholder="Введите ФИО, номер паспорта или билета...">
+            </div>
+        </div>
+        
+        <div class="card mb-4">
+            <div class="card-header">
+                <h5>Добавить/изменить пассажира</h5>
+            </div>
+            <div class="card-body">
+                <form id="passengerForm">
+                    <input type="hidden" id="passengerId">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label for="passengerName" class="form-label">ФИО</label>
+                                <input type="text" class="form-control" id="passengerName" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="passengerPassport" class="form-label">Номер паспорта</label>
+                                <input type="text" class="form-control" id="passengerPassport" required minlength="10">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label for="passengerTicket" class="form-label">Номер билета</label>
+                                <input type="text" class="form-control" id="passengerTicket" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="passengerFlight" class="form-label">Рейс</label>
+                                <select class="form-select" id="passengerFlight" required>
+                                    <option value="">Выберите рейс</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary me-2">Сохранить</button>
+                    <button type="button" class="btn btn-secondary" onclick="document.getElementById('passengerForm').reset(); document.getElementById('passengerId').value = '';">Отмена</button>
+                </form>
+            </div>
+        </div>
+
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>ФИО</th>
+                    <th>Паспорт</th>
+                    <th>Билет</th>
+                    <th>Рейс</th>
+                    <th>Действия</th>
+                </tr>
+            </thead>
+            <tbody id="passengersTable">
+                <!-- Данные будут загружены через JavaScript -->
+            </tbody>
+        </table>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
